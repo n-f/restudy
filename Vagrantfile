@@ -6,6 +6,9 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 Vagrant.configure("2") do |config|
+
+# Vagrant insecure key detected. Vagrant will automatically replace の状態を止める
+config.ssh.insert_key = false
 # The most common configuration options are documented and commented below.
 # For a complete reference, please see the online documentation at
 # https://docs.vagrantup.com.
@@ -72,9 +75,9 @@ config.vm.provision "shell",:path => "./httpd.sh"
 config.vm.provision "shell",:path => "./composer.sh"
 config.vm.provision "shell",:path => "./cakephp.sh"
 config.vm.provision "shell",:path => "./use_apache.sh"
+config.vm.provision "shell",:path => "./db.sh"
 
 #   apt-get update
 #   apt-get install -y apache2
 # SHELL
 end
-
